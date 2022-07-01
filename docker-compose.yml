@@ -1,0 +1,34 @@
+
+services:
+
+  app:
+    build: ./php
+    ports:
+      - 8050:80
+    volumes:
+      - ./presta/:/var/www/html
+    depends_on:
+      - mysql
+    container_name: prestaFOP_www
+  # Service mysql 
+  mysql:
+    image: mysql:5.7
+    env_file:
+      - .env
+    volumes:
+      - ./.docker/data/mysql/:/var/lib/mysql
+      - ./.docker/logs/mysql/:/var/log/mysql
+    ports:
+      - "8060:3306"
+    container_name: prestaFOP_mysql
+  # Service phpmyadmin 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      -  8080:80
+    env_file:
+      - .env
+    environment:
+      PMA_HOST: mysql
+      VIRTUAL_HOST: phpmyadmin.presta.local  
+    container_name: prestaFOP_phpmyadmin
