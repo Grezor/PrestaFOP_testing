@@ -1,0 +1,3 @@
+[submodule "presta/modules/fop_console"]
+	path = presta/modules/fop_console
+	url = https://github.com/friends-of-presta/fop_console.git
