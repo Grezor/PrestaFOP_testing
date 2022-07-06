@@ -11,3 +11,10 @@
   1.5.0                1.5.0          1.5.0
  -------------------- -------------- --------------
 ```
+
+```shell
+// prestashop
+http://localhost:8050/
+// phpmyadmin
+http://localhost:8050/
+```
